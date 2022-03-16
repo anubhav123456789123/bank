@@ -1,0 +1,132 @@
+{% include 'nav.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>D Bank</title>
+    <style>
+        h3{
+            color: red;
+            font-size: x-large;
+        }
+        .nav-li2{
+            display: inline;
+        }
+        }
+        #balance{
+            margin-left: 550px;
+        }
+        #comms{
+            margin-left: 550px;
+        }
+        .nav-li3{
+            list-style-type: none;
+        }
+        .nav-li3 a {
+            color: black;
+        }
+        #amount{
+            margin-left: 340px;
+        }
+        #p-amount{
+            margin-left: 405px;
+        }
+        #cad-amount{
+            margin-left: 438px;
+        }
+        #i-amount{
+            margin-left: 398px;
+        }
+        #c-amount{
+            margin-left: 367px;
+        }
+        #moment{
+            margin-top: 20px;
+        }
+        #moment a{
+            
+            color: black
+        }
+        
+        
+        .moment-amount{
+            padding-top: 20px;
+        }
+        .Accounts{
+            border: solid 5px rgb(235, 61, 61);;
+            border-radius:5px;
+            margin-top: 10px;
+            padding:10px;
+            margin-right: 450px ;
+            margin-left: 20px;
+        }
+        .main-heading{
+            margin-left: 30px;
+        }
+        h4{
+            margin-left: 30px;
+        }
+        h3{
+            margin-left: 30px;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <h3> D-Bank</h3>
+    <h4>Banking</h4>
+    <div class="main-accounts">
+        <div class="Accounts">
+            <div class='main-heading'>
+                <li class='nav-li2'> Account </li>
+                <li class='nav-li2' id="balance"> Balance $ </li>
+            </div>
+            <div class='moment-amount'>
+                <li class='nav-li2' id="moment"> Momentum PLUS Savings - ********73*1106 </a></li>
+                <li class='nav-li2' id="amount"> 0.00 </li>
+            </div>
+            <div class='moment-amount'>
+                <li class='nav-li2''sec' id="moment"><a href={{url_for("ahistory")}}> Preferred Package - {{user.account_no}}</a></li>
+                <li class='nav-li2' id="p-amount"> <b>{{user.mbal}}</b> </li>
+            </div>
+            <div class='moment-amount'>
+                <li class='nav-li2' id="moment"><b>Total Banking Balance CAD</b> </li>
+                <li class='nav-li2' id="cad-amount"> <b>{{user.mbal}}</b> </li>
+            </div>
+        </div>
+        <h4>Investments</h4>
+        <div class="Accounts">
+            <div class='main-heading'>
+                <li class='nav-li2'> Account </li>
+                <li class='nav-li2' id="balance"> Balance $ </li>
+            </div>
+            <div class='moment-amount'>
+                <li class='nav-li2' id="moment"> Non-Reg Savings - BNS *******34353 </li>
+                <li class='nav-li2' id="i-amount"> {{user.ipal}} </li>
+            </div>
+            <div class='moment-amount'>
+                <li class='nav-li2' id="moment"><b>Total Investments Balance CAD</b> </li>
+                <li class='nav-li2' id="cad-amount"> <b>{{user.ipal}}</b> </li>
+            </div>
+        </div>
+        <h4>Borrowing</h4>
+        <div class="Accounts">
+            <div class='main-heading'>
+                <li class='nav-li2'> Account </li>
+                <li class='nav-li2' id="balance"> Balance $ </li>
+            </div>
+            <div class='moment-amount'>
+                <li class='nav-li2 sec' id="moment"><a href={{url_for("cr_history")}}> Preferred Package - {{user.credit_no}} </a></li>
+                <li class='nav-li2' id="c-amount"> {{user.cpal}} </li>
+            </div>
+        </div>
+    </div>
+   
+</body>
+
+</html>

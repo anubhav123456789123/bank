@@ -1,0 +1,132 @@
+{% include 'nav.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment-History</title>
+    <style>
+        .nav-container1{
+            background-color: white(231, 199, 199);
+            padding-top: 15px;
+            padding-bottom: 15px;
+            margin-top: 20px;
+        }
+        .main{
+            /* border: 10px solid red; */
+            padding-left: 50px;
+            padding-bottom: 20px;
+        }
+        
+        
+        
+        .for{
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        #Premium{
+            margin-left: 9px ;
+        }
+        #amount{
+            margin-left: 33px;
+        }
+        #accounts{
+            margin-left: 15px;
+        }
+        input{
+            margin-left: 10px;
+        }
+        h2{
+            color: red;
+        }
+        .btn-container{
+            padding-top: 20px;
+            padding-left: 45px;
+        }
+        .pay-btn{
+            padding-left: 50px;
+            padding-right: 50px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            font-size: medium;
+            color: whitesmoke;
+            background-color: rgb(235, 61, 61);
+            border-radius: 7px;
+            text-align: center;
+            text-decoration: none;
+            border:none
+        }
+        a{
+            text-decoration: none;
+            color: red;
+        
+        }
+        .nav-container1{
+            /* border: solid 1px; */
+            background-color: white(231, 199, 199);
+            padding-top: 15px;
+            padding-bottom: 15px;
+        
+        }
+        .nav-li2 a{
+            color: black;
+            text-decoration: none;
+            font-size: medium;
+        }
+        .nav-li2{
+            font-size: larger;
+            display: inline;
+            margin-left: 20px ;
+            /* margin-right: 180px; */
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+        {%for message in get_flashed_messages()%}
+            <div class = 'message_container'>
+                <p><b>{{message}}</b></p>
+            </div>
+        {%endfor%}
+        <div class="l1 radioo">
+        <form method='POST'>
+            {{form.hidden_tag()}}
+            <div class = 'l1'>
+            {{form.withdraw.label(class_='label for')}}
+            {{form.withdraw(class_='input for', id = 'accounts')}}
+            </div>
+            <div class = 'l1'>
+            {{form.to.label(class_='label for')}}
+            {{form.to(class_='input for', id= 'Premium')}}
+            </div>
+            <div class = 'l1'>
+            {{form.amount.label(class_='label for')}}
+            {{form.amount(class_='input for', id='amount')}}
+            </div>
+            <div class = 'btn-container'>
+                {{form.submit(class_='pay-btn')}}
+            </div>
+      </form>
+        <!-- </div>
+        <div class="l1">
+            <label for="accounts" class="label for">From</label>
+            <input type="text" class="input for"id="accounts" placeholder="Credit Card 3435454"><br>
+        </div>
+        <div class="l1">
+            <label for="Premium" class="label for">To</label>
+            <input type="text" class="input for "id="Premium" placeholder="Account"><br>
+        </div>
+        <div class="l1">
+            <label for="amount" class="label for">Amount</label>
+            <input type="number" class="input for"id="amount" placeholder="">
+        </div>
+        <div class="btn-container">
+            <a  href='#' type="submit" class="pay-btn">Done</a>
+        </div> -->
+    </div>
+    
+</body>

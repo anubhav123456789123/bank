@@ -1,0 +1,114 @@
+{% include 'nav.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill Payment</title>
+    <style>
+        .nav-container1{
+            border: solid 1px;
+            background-color: white(231, 199, 199);
+            padding-top: 15px;
+            padding-bottom: 15px;
+        
+        }
+
+        .nav-li2 a{
+            color: black;
+            text-decoration: none;
+            font-size: medium;
+        }
+        .nav-li2{
+            display: inline;
+            margin-left: 180px ;
+            margin-right: 180px;
+            padding: 10px;
+        }
+        .nav-container2{
+            padding-top: 50px;
+            /* border: solid 3px red; */
+            margin-top: 50px;
+            padding-bottom: 50px;
+            margin-left: 50px;
+            /* margin-right: 50px; */
+        }
+        .nav-li3{
+            padding-top: 10px;
+        }
+        .sec-container{
+            margin-top: 10px;
+            padding-top: 10px;
+            /* border:solid 10px yellow; */
+            margin-left: 150px;
+            margin-right: 700px;
+            height: auto;
+        }
+        .detail{
+            /* border: 10px solid green; */
+            padding: 10px;
+            margin: 10px;
+        }
+        .in{
+            margin: 10px;
+        }
+        .btn-container{
+            padding-top: 20px;
+            padding-left: 240px;
+        }
+        .pay-btn{
+            padding-left: 50px;
+            padding-right: 50px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            font-size: medium;
+            color: whitesmoke;
+            background-color: rgb(235, 61, 61);
+            border-radius: 7px;
+            text-align: center;
+            text-decoration: none;
+        }
+        .message_container{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class=nav-container1>
+        <li class='nav-li2'><a href={{url_for("bill")}}>Pay Bill</a></li>
+        <li class='nav-li2'><a href="{{url_for("phistory")}}">History</a></li>
+    </div>
+    {%for message in get_flashed_messages()%}
+        <div class = 'message_container'>
+            <p><b>{{message}}</b></p>
+        </div>
+    {%endfor%}
+    <div class= nav-container2>
+        <div class="sec-container">
+            <dilv class="detail">
+                <form method="POST">
+                    {{form.hidden_tag()}}
+                    {{form.name.label()}}
+                    {{form.name(class_='in', type='text',placeholder='Enter Payee Name')}}
+                    {{form.amount.label()}}
+                    {{form.amount(class_='in', type='text',placeholder='Enter Amount ')}}
+                    <div class="btn-container">
+                        {{form.submit(class_='pay-btn')}}
+                    </div>
+                </form>
+            </div>
+            <div class="add-info">
+                <h3 class='heading'>Addtion Details you may need</h3>
+                <p>When paying a bill please remember:</p>
+                <p>Your current balance does not reflect your overdraft protection or your holds.</p>
+                <p>Please use the Transfer function to pay your personal Credit Card or Line of Credit accounts.</p>
+                <p>Not seeing one of your accounts? </p>
+                <p>Payee and account nicknames will be displayed on-screen when you're using an ABM; please do not use sensitive or personal information (e.g., SIN, passwords, phone number, etc.) as nicknames.</p>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
